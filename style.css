@@ -1,0 +1,90 @@
+
+/*****Paleta de colores****/
+:root{
+    --blanco: #ffffff;
+    --negro: rgb(0,0,0);
+    --naranja: #E05E1D;
+    --aguaMarina:#1DE0D3;
+    --aguaMarinaOscuro:#00948A;
+    --piel:#FFA375;
+    --cafe:#943709;
+}
+
+
+html{
+    font-size: 80%;
+}
+
+
+#cabecera{
+    width:100vw;
+    height: 25vh;
+    background-color: rgb(2, 3, 61);
+    overflow: hidden;
+    background-image: url(https://images.unsplash.com/photo-1554302891-c98c2d1e0d3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80);
+}
+
+body{
+    margin: 0;
+    font-size:1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+
+}
+
+#filtro{
+    width: 400px;
+    margin: 0 auto;
+    display: grid; /****Estructura del contenedor****/
+    grid-template-columns: repeat(3, 1fr);/**** (fila, columna)****/
+}
+
+.item{
+    background-color: rgb(0, 223, 74);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    
+}
+
+/***Dar estilo al pasar el mouse****/
+.item:hover{
+    color: rgb(255, 255, 255);
+    background-color: rebeccapurple;
+}
+
+/*******Estilo de la cabecera******/
+#contTexto{
+    width:50%;
+    float: left;
+    height:100%;
+    text-align: center;
+    margin-top: 50px;
+    color: #ffffff;
+}
+#contImg{
+    width: 50%;
+    float: right;
+    height: 100%;
+    margin-top: 50px;
+
+}
+
+/****estilo imagen cabecera******/
+.flotar{
+    animation: flotarArriba 3s ease-in-out infinite;
+}
+
+/****construir animación****/
+@keyframes flotarArriba {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
