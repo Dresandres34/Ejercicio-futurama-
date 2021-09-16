@@ -91,10 +91,10 @@ body{
 
 /*********estilo para el cuerpo*******/
 #cuerpo{
-    background-color:#00948A;
     padding: 2em;
 }
 
 .imgPersonaje{
     height: 200px;
+    object-fit: contain; /***atributo para que la imagen mantega las proporciones dependiendo del contenedor */
 }

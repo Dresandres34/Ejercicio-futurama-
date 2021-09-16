@@ -36,6 +36,31 @@ function actualizar() {
 */
 
 function actualizar() {
-    document.getElementById ("imgPersonaje");
+    let alt = document.getElementById("imgPersonaje").alt;
+    if (alt== "imagen1"){
+        //acceder a un elemento del documento html por el id 
+        document.getElementById ("imgPersonaje").src = "https://vignette.wikia.nocookie.net/en.futurama/images/0/0d/Hermes.png/revision/latest?cb=20170719011119";
 
+        //cambiamos el alt de la imagen
+        document.getElementById("imgPersonaje").alt= "imagen2";
+    }else{
+        document.getElementById("imgPersonaje").src="https://vignette.wikia.nocookie.net/en.futurama/images/7/74/Albert.jpg/revision/latest/scale-to-width-down/350?cb=20090723101946"
+        //cambiamos el alt de la imagen
+        document.getElementById("imgPersonaje").alt= "imagen1"; 
+    }
+}
+
+//Funcion de llamado a la api de futurama 
+
+async function cargarPersonajes(){
+    //conectar / llamar a la api, creando una constante en la cual guardar la iformacion de la api
+    const peticion= await fetch("https://futuramaapi.herokuapp.com/api/v2/characters");
+    console.log("-----petición-----")
+    console.log(peticion)
+    console.log("------------------")
+
+    const data = await peticion.json();
+    console.log("--------data--------")
+    console.log(data);
+    console.log("--------------------")
 }
