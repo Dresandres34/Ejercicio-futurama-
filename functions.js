@@ -51,6 +51,7 @@ function actualizar() {
 }
 
 //Funcion de llamado a la api de futurama 
+//async para convertir la funcion padre en asincronica y que el await que se utiliza en el fecth o las petciones fucionnen, en otras palabras las funciones que se convierten en sicronicas deben convertir al padre en asincronicas
 
 async function cargarPersonajes(){
     //conectar / llamar a la api, creando una constante en la cual guardar la iformacion de la api
@@ -58,9 +59,27 @@ async function cargarPersonajes(){
     console.log("-----petición-----")
     console.log(peticion)
     console.log("------------------")
-
     const data = await peticion.json();
     console.log("--------data--------")
     console.log(data);
     console.log("--------------------")
+/***** Recorrer el arreglo obtenido en la peticion de la appi  */
+    data.forEach(element => {
+    //console.log(element.Name);
+    let tarjeta= "<div class='card' style='width: 18rem;'>";
+    tarjeta += "<img id='imgPersonaje' src='"+element.PicUrl+"'";
+    tarjeta += "class='card-img-top imgPersonaje' alt='imagen1'>";
+    tarjeta += "<div class='card-body'>"; 
+    tarjeta += "<h5 class='card-title'>Bender</h5>"
+    tarjeta += "<label>Profesión:</label>";
+    tarjeta += "<br> <label>Especie:</label> <br>"; 
+    tarjeta += "<label>Planeta:</label><br><br>";          
+    tarjeta += "<button type='button' class='btn btn-danger' onclick='eliminar()'>Eliminar</button>";
+    tarjeta += "&nbsp;";            
+    tarjeta += "<button type='button' class='btn btn-primary' onclick='actualizar()'>Actualizar</button>";
+    tarjeta += "</div><div>";           
+    /****agregar estructura /card al div */
+    document.getElementById("cuerpo").innerHTML += tarjeta;
+    });
+
 }
